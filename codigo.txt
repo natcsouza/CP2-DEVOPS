@@ -1,0 +1,5 @@
+docker network create dimdim-network
+
+docker run -d --name mysql-dimdim --network dimdim-network -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=dimdim -v mysql-data:/var/lib/mysql -p 3306:3306 mysql:5.7
+
+docker run -d --name adminer-dimdim --network dimdim-network -p 8081:8080 adminer
